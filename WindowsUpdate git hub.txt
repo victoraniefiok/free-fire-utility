@@ -1,0 +1,24 @@
+function calculateSensitivity() {
+  const general = parseInt(document.getElementById('general').value);
+  const redDot = parseInt(document.getElementById('redDot').value);
+  const scope4x = parseInt(document.getElementById('scope4x').value);
+  const freeLook = parseInt(document.getElementById('freeLook').value);
+
+  // Formula for headshot sensitivity (example logic)
+  const avg = (general + redDot + scope4x + freeLook) / 4;
+  const dpi = Math.round(avg * 5.6);
+  const level = avg > 80 ? "Perfect for Headshots" : avg > 60 ? "Good" : "Needs Adjustment";
+
+  document.getElementById('sensitivityResult').innerText =
+    `Recommended DPI: ${dpi} | Sensitivity Level: ${level}`;
+}
+
+function applyOptimization() {
+  const graphics = document.getElementById('graphics').value;
+  const resolution = document.getElementById('resolution').value;
+  const fps = document.getElementById('fps').value;
+  const batterySaver = document.getElementById('batterySaver').checked ? "ON" : "OFF";
+
+  document.getElementById('optimizerResult').innerText =
+    `Applied: Graphics=${graphics}, Resolution=${resolution}, FPS=${fps}, Battery Saver=${batterySaver}`;
+}
